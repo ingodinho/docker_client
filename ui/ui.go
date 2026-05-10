@@ -79,7 +79,7 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 
 func (m Model) View() tea.View {
 	// The header
-	s := "ID NAME STATUS\n\n"
+	s := "ID STATUS NAME STATE\n\n"
 
 	// Iterate over our choices
 	for i, containerInfo := range m.containerInfos {
@@ -90,14 +90,14 @@ func (m Model) View() tea.View {
 		}
 
 		// Render the row
-		s += fmt.Sprintf("%s %s %s %s\n", cursor, containerInfo.Id, containerInfo.Status, containerInfo.Name)
+		s += fmt.Sprintf("%s %s %s %s %s\n", cursor, containerInfo.Id, containerInfo.Status, containerInfo.Name, containerInfo.State)
 	}
 
 	// The footer
-	s += "\n q to quit. |"
-	s += "s to start container. |"
-	s += "t to stop container. |"
-	s += "r to restart container. |"
+	s += "\n q to quit. "
+	s += "s to start container. "
+	s += "t to stop container. "
+	s += "r to restart container. "
 
 	// Send the UI for rendering
 	return tea.NewView(s)
