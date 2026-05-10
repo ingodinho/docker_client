@@ -13,6 +13,8 @@ type Model struct {
 	containerInfos []docker.ContainerInfo
 	cursor         int
 }
+type containersFetchedMsg []docker.ContainerInfo
+type tickMsg time.Time
 
 func InitialModel() Model {
 	return Model{
@@ -145,9 +147,6 @@ func restartContainer(id string) func() tea.Msg {
 		return containersFetchedMsg(containerInfos)
 	}
 }
-
-type containersFetchedMsg []docker.ContainerInfo
-type tickMsg time.Time
 
 func doTick() tea.Cmd {
 	return tea.Tick(time.Second*3, func(t time.Time) tea.Msg {

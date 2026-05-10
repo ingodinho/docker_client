@@ -2,12 +2,9 @@ package docker
 
 import (
 	"context"
-	// "fmt"
 	"log"
-	// "github.com/docker/docker/pkg/stack"
 	"github.com/moby/moby/api/types/container"
 	client "github.com/moby/moby/client"
-	// Tcontainer "github.com/moby/moby/api/types/container"
 )
 
 const maxContainerId int = 12
